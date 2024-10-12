@@ -10,7 +10,7 @@ const RatingRouter = require("./routes/rating_feedback.routes");
 const server = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // Specify the frontend URL
+  origin: 'http://localhost:5173', // Specify the frontend URL
   credentials: true, // Allow credentials if needed
 };
 server.use(cors(corsOptions));
