@@ -69,7 +69,8 @@ try {
         res.setHeader('authorization', `Bearer ${token}`);
         res.status(200).json({
             message:"user logged in successfully",
-            "token":token
+            "token":token,
+            email:email
         })
        }else{
         res.status(500).json({
@@ -120,11 +121,11 @@ const logout=async(req,res)=>{
 }
 
 const getOwnData=async(req,res)=>{
-    const {id}=req.params
+    const userId=req.user._id
     try {
-        const getdata=await User.findById(id)
+        const data=await User.findById(userId)
         res.status(200).json({
-            message:getdata
+            data
         })
     } catch (error) {
         res.status(500).json({
