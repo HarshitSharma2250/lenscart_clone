@@ -36,7 +36,7 @@ server.use("/api", cartRouter);
 server.use("/api", categoryRouter);
 server.use("/api", orderRouter);
  server.use("/api", RatingRouter);
-server.use(express.urlencoded({extended:false}));
+
 
 
 
