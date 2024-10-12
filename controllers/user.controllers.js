@@ -125,7 +125,7 @@ const getOwnData=async(req,res)=>{
     try {
         const data=await User.findById(userId)
         res.status(200).json({
-            data
+            data:data
         })
     } catch (error) {
         res.status(500).json({
