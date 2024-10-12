@@ -53,25 +53,18 @@ const Authorization = (allowedRoles) => {
 };
 
 const OnlyOwnProfile = async (req, res, next) => {
-  const { id } = req.params; // Assuming the user ID is passed in params
+  const id=req.user._id
   
   try {
     const user = await User.findById(id);  // Find the user profile being accessed
 
     if (!user) {
       return res.status(404).json({
-        message: "User not found",
-      });
-    }
-
-    // Allow if the user is admin or accessing their own profile
-    if (req.user.role === 'admin' || req.user._id.toString() === id) {
-      next();  // Proceed if the user is admin or owns the profile
-    } else {
-      return res.status(403).json({
         message: "You are not authorized to perform this action",
       });
     }
+
+  next()
 
   } catch (error) {
     res.status(500).json({
