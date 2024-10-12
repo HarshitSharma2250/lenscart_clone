@@ -7,11 +7,18 @@ const cors = require("cors");
 const categoryRouter = require("./routes/category.route");
 const orderRouter = require("./routes/order.routes");
 const RatingRouter = require("./routes/rating_feedback.routes");
+const server = express();
+
+const corsOptions = {
+  origin: 'http://localhost:3000', // Specify the frontend URL
+  credentials: true, // Allow credentials if needed
+};
+server.use(cors(corsOptions));
 
 
 // server initilizing
-const server = express();
-server.use( cors("*"));
+
+// server.use( cors("*"));
 
 
 server.get("/home", (_, res) => {
