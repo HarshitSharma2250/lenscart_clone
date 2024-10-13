@@ -74,12 +74,6 @@ const getAlldata=async(req,res)=>{
                 as:"categories"
             },{
                 $unwind:"$categories"
-            },
-            {
-                $lookup:"categories",
-                localField:"categoryId",
-                foreignField:"_id",
-                as:"categories" 
             }
         ])
         await res.status(200).json({
