@@ -6,7 +6,6 @@ const categorySchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   type: { type: [String] }, // Type as an array of strings
   shape: { type: [String] }, // Shape as an array of strings
-  gender:{type:String,enum:["men","women","kids"]},
 
 });
 
