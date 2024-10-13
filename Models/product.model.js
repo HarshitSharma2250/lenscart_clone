@@ -48,10 +48,10 @@ const productSchema = new Schema(
       type: Number, // In percentage
       default: 0,
     },
-    categoryId:{
+    categoryId:[{
       type:Schema.Types.ObjectId,
       ref:"Category"
-    }
+    }]
   },
   {
     timestamps: true,

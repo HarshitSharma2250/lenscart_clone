@@ -68,10 +68,12 @@ const getAlldata=async(req,res)=>{
     try {
         const getallData=await productSchema.aggregate([
             {
-                $lookup:"categories",
+                $lookup:{
+                    from:"categories",
                 localField:"categoryId",
                 foreignField:"_id",
                 as:"categories"
+                }
             },{
                 $unwind:"$categories"
             }
