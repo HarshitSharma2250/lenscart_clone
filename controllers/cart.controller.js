@@ -37,7 +37,10 @@ if(checkCartproduct){
 
 checkcart.totalItems=checkcart.items.reduce((total,ele)=>total+ele.quantity,0)
 checkcart.totalPrice=checkcart.items.reduce((total,ele)=>total+ele.price,0)
-
+res.status(201).json({
+  message:"data added to cart successfully",
+  checkcart
+})
 await checkcart.save()
     } catch (err) {
       console.log(err);
