@@ -76,6 +76,24 @@ const getAlldata=async(req,res)=>{
                 }
             },{
                 $unwind:"$categories"
+            },
+            {
+                $group: {
+                    _id: "$_id",  // Group by product ID
+                    name: { $first: "$name" },
+                    description: { $first: "$description" },
+                    price: { $first: "$price" },
+                    brand: { $first: "$brand" },
+                    image: { $first: "$image" },
+                    stock: { $first: "$stock" },
+                    lensType: { $first: "$lensType" },
+                    frameMaterial: { $first: "$frameMaterial" },
+                    color: { $first: "$color" },
+                    gender: { $first: "$gender" },
+                    createdBy: { $first: "$createdBy" },
+                    discount: { $first: "$discount" },
+                    categories: { $push: "$categories" } // Push all categories into an array
+                }
             }
         ])
         await res.status(200).json({

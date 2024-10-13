@@ -79,7 +79,6 @@ const OnlyOwnDataExist = async (req, res, next) => {
   
   try {
     const cart = await Cart.findById(id).populate("userId");
-
     if (!cart) {
       return res.status(404).json({
         message: "Cart not found",

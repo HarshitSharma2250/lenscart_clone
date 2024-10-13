@@ -37,7 +37,7 @@ const productSchema = new Schema(
     },
     gender: {
       type: String,
-      enum: ['Men', 'Women', 'Unisex',"child"],
+      enum: ['Men', 'Women', 'Unisex',"Child"],
     },
     createdBy: {
       type: Schema.Types.ObjectId,
