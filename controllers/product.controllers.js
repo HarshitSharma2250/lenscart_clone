@@ -86,4 +86,4 @@ const getAlldata=async(req,res)=>{
     }
 }
 
-module.exports={addData,updateData,deleteData}
+module.exports={addData,updateData,deleteData,getAlldata}
